@@ -1,0 +1,45 @@
+<div class="handle-controls">
+  <div class="show-items-wrapper">
+    <label>show:</label>
+    <select (change)="showListItems($event)">
+      <option value="all">all</option>
+      <option value="10">10</option>
+      <option value="20">20</option>
+      <option value="50">50</option>
+      <option value="100">100</option>
+    </select>
+  </div>
+  <div class="search-wrapper">
+    <label>search:</label>
+    <input type="text" [(ngModel)]="search" (input)="searchData()"/>
+  </div>
+
+
+</div>
+
+<table class="fullwidth">
+  <tr>
+    <th>name</th>
+    <th>status</th>
+    <th>created</th>
+    <th>expires</th>
+    <th>storage</th>
+    <th>location</th>
+    <th>selector</th>
+  </tr>
+  <tr *ngFor="let backup of backupsData; index as i;">
+    <td *ngIf="i < limit && !backup.hide"><a routerLink="/backup/{{backup.name}}">{{backup.name}}</a></td>
+    <td *ngIf="i < limit && !backup.hide">
+      <a routerLink="/backup/{{backup.name}}"><span class="completed-label" *ngIf="backup.status === 1">
+      completed
+    </span>
+      </a>
+    </td>
+    <td *ngIf="i < limit && !backup.hide"><a routerLink="/backup/{{backup.name}}">{{backup.created}}</a></td>
+    <td *ngIf="i < limit && !backup.hide"><a routerLink="/backup/{{backup.name}}">{{backup.expires}}</a></td>
+    <td *ngIf="i < limit && !backup.hide"><a routerLink="/backup/{{backup.name}}">{{backup.storage}}</a></td>
+    <td *ngIf="i < limit && !backup.hide"><a routerLink="/backup/{{backup.name}}">{{backup.location}}</a></td>
+    <td *ngIf="i < limit && !backup.hide"><a routerLink="/backup/{{backup.name}}">{{backup.selector}}</a></td>
+  </tr>
+</table>
+

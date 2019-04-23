@@ -1,0 +1,117 @@
+<table>
+  <tr>
+    <td>Name</td>
+    <td>{{backUpdata.Name}}</td>
+  </tr>
+  <tr>
+    <td>Namespace</td>
+    <td>{{backUpdata.Namespace}}</td>
+  </tr>
+  <tr>
+    <td>Labels</td>
+    <td>{{backUpdata.Labels}}</td>
+  </tr>
+  <tr>
+    <td>Annotations</td>
+    <td>{{backUpdata.Annotations}}</td>
+  </tr>
+  <tr>
+    <td>Phase</td>
+    <td>{{backUpdata.Phase}}</td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td colspan="2">
+      Namespaces
+    </td>
+  </tr>
+  <tr>
+    <td>Included</td>
+    <td>{{backUpdata.Namespaces.Included}}</td>
+  </tr>
+  <tr>
+    <td>Excluded</td>
+    <td>{{backUpdata.Namespaces.Excluded}}</td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td colspan="2">
+      Resources
+    </td>
+  </tr>
+  <tr>
+    <td>Included</td>
+    <td>{{backUpdata.Resources.Included}}</td>
+  </tr>
+  <tr>
+    <td>Excluded</td>
+    <td>{{backUpdata.Resources.Excluded}}</td>
+  </tr>
+  <tr>
+    <td>Cluster-scoped</td>
+    <td>{{backUpdata.Resources['Cluster-scoped']}}</td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>Label selector</td>
+    <td>{{backUpdata.Label_selector}}</td>
+  </tr>
+  <tr>
+    <td>Storage location</td>
+    <td>{{backUpdata.Storage_Location}}</td>
+  </tr>
+  <tr>
+    <td>Snapshot Vs</td>
+    <td>{{backUpdata.Snapshot_Vs}}</td>
+  </tr>
+  <tr>
+    <td>TTL</td>
+    <td>{{backUpdata.TTL}}</td>
+  </tr>
+  <tr>
+    <td>Hooks</td>
+    <td>{{backUpdata.Hooks}}</td>
+  </tr>
+  <tr>
+    <td>Backup Format Version</td>
+    <td>{{backUpdata.Backup_Format_Version}}</td>
+  </tr>
+  <tr>
+    <td>Started</td>
+    <td>{{backUpdata.Started}}</td>
+  </tr>
+  <tr>
+    <td>Completed</td>
+    <td>{{backUpdata.Completed}}</td>
+  </tr>
+  <tr>
+    <td>Expiration</td>
+    <td>{{backUpdata.Expiration}}</td>
+  </tr>
+  <tr>
+    <td>Validation errors</td>
+    <td>{{backUpdata.Validation_errors}}</td>
+  </tr>
+  <tr>
+    <td>Persistent Volumes</td>
+    <td>{{backUpdata.Persistent_Volumes}}</td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td colspan="2">Restic_Backups</td>
+  </tr>
+  <tr>
+    <td>Completed</td>
+    <td>{{backUpdata.Restic_Backups.Completed}}</td>
+  </tr>
+  <tr>
+    <td>wordpress/wp-7ccf7ffbc8-r9c99</td>
+    <td>{{backUpdata.Restic_Backups['wordpress/wp-7ccf7ffbc8-r9c99']}}</td>
+  </tr>
+</table>

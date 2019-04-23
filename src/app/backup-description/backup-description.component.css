@@ -1,0 +1,7 @@
+table {
+  width: 30%;
+}
+
+table td:nth-child(1) {
+  width: 30%;
+}
