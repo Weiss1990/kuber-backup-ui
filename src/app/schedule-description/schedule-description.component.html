@@ -1,3 +1,88 @@
-<p>
-  schedule-description works!
-</p>
+<table>
+  <tr>
+    <td>Name</td>
+    <td>{{scheduleData.Name}}</td>
+  </tr>
+  <tr>
+    <td>Namespace</td>
+    <td>{{scheduleData.Namespace}}</td>
+  </tr>
+  <tr>
+    <td>Annotations</td>
+    <td>{{scheduleData.Annotations}}</td>
+  </tr>
+  <tr>
+    <td>Phase</td>
+    <td>{{scheduleData.Phase}}</td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td colspan="2">
+      Namespaces
+    </td>
+  </tr>
+  <tr>
+    <td>Included</td>
+    <td>{{scheduleData.Namespaces.Included}}</td>
+  </tr>
+  <tr>
+    <td>Excluded</td>
+    <td>{{scheduleData.Namespaces.Excluded}}</td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td colspan="2">
+      Resources
+    </td>
+  </tr>
+  <tr>
+    <td>Included</td>
+    <td>{{scheduleData.Resources.Included}}</td>
+  </tr>
+  <tr>
+    <td>Excluded</td>
+    <td>{{scheduleData.Resources.Excluded}}</td>
+  </tr>
+  <tr>
+    <td>Cluster-scoped</td>
+    <td>{{scheduleData.Resources['Cluster-scoped']}}</td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>Label selector</td>
+    <td>{{scheduleData.Label_selector}}</td>
+  </tr>
+  <tr>
+    <td>Storage location</td>
+    <td>{{scheduleData.Storage_Location}}</td>
+  </tr>
+  <tr>
+    <td>Snapshot Vs</td>
+    <td>{{scheduleData.Snapshot_Vs}}</td>
+  </tr>
+  <tr>
+    <td>TTL</td>
+    <td>{{scheduleData.TTL}}</td>
+  </tr>
+  <tr>
+    <td>Hooks</td>
+    <td>{{scheduleData.Hooks}}</td>
+  </tr>
+  <tr>
+    <td>Started</td>
+    <td>{{scheduleData.Started}}</td>
+  </tr>
+  <tr>
+    <td>Last backup</td>
+    <td>{{scheduleData.LastBackup}}</td>
+  </tr>
+  <tr>
+    <td>Validation errors</td>
+    <td>{{scheduleData.Validation_errors}}</td>
+  </tr>
+</table>
