@@ -1,0 +1,73 @@
+<table>
+  <tr>
+    <td>Name</td>
+    <td>{{restoreData.Name}}</td>
+  </tr>
+  <tr>
+    <td>Namespace</td>
+    <td>{{restoreData.Namespace}}</td>
+  </tr>
+  <tr>
+    <td>Annotations</td>
+    <td>{{restoreData.Annotations}}</td>
+  </tr>
+  <tr>
+    <td>Phase</td>
+    <td>{{restoreData.Phase}}</td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td colspan="2">
+      Namespaces
+    </td>
+  </tr>
+  <tr>
+    <td>Included</td>
+    <td>{{restoreData.Namespaces.Included}}</td>
+  </tr>
+  <tr>
+    <td>Excluded</td>
+    <td>{{restoreData.Namespaces.Excluded}}</td>
+  </tr>
+</table>
+
+<table>
+  <tr>
+    <td colspan="2">
+      Resources
+    </td>
+  </tr>
+  <tr>
+    <td>Included</td>
+    <td>{{restoreData.Resources.Included}}</td>
+  </tr>
+  <tr>
+    <td>Excluded</td>
+    <td>{{restoreData.Resources.Excluded}}</td>
+  </tr>
+  <tr>
+    <td>Cluster-scoped</td>
+    <td>{{restoreData.Resources['Cluster-scoped']}}</td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td>Label selector</td>
+    <td>{{restoreData.Label_selector}}</td>
+  </tr>
+  <tr>
+    <td>Started</td>
+    <td>{{restoreData.Started}}</td>
+  </tr>
+  <tr>
+    <td>Errors</td>
+    <td>{{restoreData.Errors}}</td>
+  </tr>
+  <tr>
+    <td>Warnings</td>
+    <td>{{restoreData.Warnings}}</td>
+  </tr>
+</table>
+

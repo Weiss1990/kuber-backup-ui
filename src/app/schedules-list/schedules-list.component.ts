@@ -37,7 +37,9 @@ export class SchedulesListComponent implements OnInit {
       let dataAsString = '';
 
       for (const prop in backup) {
-        dataAsString += backup[prop];
+        if (prop in backup) {
+          dataAsString += backup[prop];
+        }
       }
 
       dataAsString = dataAsString.toLowerCase();

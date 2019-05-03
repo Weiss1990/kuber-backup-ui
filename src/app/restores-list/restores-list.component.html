@@ -1,0 +1,45 @@
+<div class="handle-controls">
+  <div class="show-items-wrapper">
+    <label>show:</label>
+    <select (change)="showListItems($event)">
+      <option value="all">all</option>
+      <option value="10">10</option>
+      <option value="20">20</option>
+      <option value="50">50</option>
+      <option value="100">100</option>
+    </select>
+  </div>
+  <div class="search-wrapper">
+    <label>search:</label>
+    <input type="text" [(ngModel)]="search" (input)="searchData()"/>
+  </div>
+
+
+</div>
+
+<table class="fullwidth">
+  <tr>
+    <th>name</th>
+    <th>backup</th>
+    <th>status</th>
+    <th>warnings</th>
+    <th>errors</th>
+    <th>created</th>
+    <th>selector</th>
+  </tr>
+  <tr *ngFor="let restore of restoresList; index as i;">
+    <td *ngIf="i < limit && !restore.hide"><a routerLink="/restores/restore/{{restore.name}}">{{restore.name}}</a></td>
+    <td *ngIf="i < limit && !restore.hide"><a routerLink="/restores/restore/{{restore.name}}">{{restore.backup}}</a></td>
+    <td *ngIf="i < limit && !restore.hide">
+      <a routerLink="/restores/restore/{{restore.name}}">
+        <span class="label {{restore.status}}">
+          {{restore.status}}
+        </span>
+      </a>
+    </td>
+    <td *ngIf="i < limit && !restore.hide"><a routerLink="/restores/restore/{{restore.name}}">{{restore.warnings}}</a></td>
+    <td *ngIf="i < limit && !restore.hide"><a routerLink="/restores/restore/{{restore.name}}">{{restore.errors}}</a></td>
+    <td *ngIf="i < limit && !restore.hide"><a routerLink="/restores/restore/{{restore.name}}">{{restore.created}}</a></td>
+    <td *ngIf="i < limit && !restore.hide"><a routerLink="/restores/restore/{{restore.name}}">{{restore.selector}}</a></td>
+  </tr>
+</table>

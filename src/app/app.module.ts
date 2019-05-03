@@ -11,6 +11,8 @@ import { BackupDescriptionComponent } from './backup-description/backup-descript
 import { HttpClientModule } from '@angular/common/http';
 import { SchedulesListComponent } from './schedules-list/schedules-list.component';
 import { ScheduleDescriptionComponent } from './schedule-description/schedule-description.component';
+import { RestoresListComponent } from './restores-list/restores-list.component';
+import { RestoresDescriptionComponent } from './restores-description/restores-description.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { ScheduleDescriptionComponent } from './schedule-description/schedule-de
     BackupsListComponent,
     BackupDescriptionComponent,
     SchedulesListComponent,
-    ScheduleDescriptionComponent
+    ScheduleDescriptionComponent,
+    RestoresListComponent,
+    RestoresDescriptionComponent
   ],
   imports: [
     BrowserModule,

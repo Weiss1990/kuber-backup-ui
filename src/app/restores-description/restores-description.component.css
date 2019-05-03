@@ -1,0 +1,15 @@
+table {
+  width: 60%;
+}
+
+table td:nth-child(1) {
+  width: 60%;
+}
+
+table table {
+  width: 100%;
+}
+
+.inner-table-container {
+  padding: 0;
+}
