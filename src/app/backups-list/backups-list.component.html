@@ -1,3 +1,25 @@
+<div class="header-labels-container">
+  <div class="header-label Pending">
+    Pending
+    <div class="header-label-count">{{pendingCount}}</div>
+  </div>
+
+  <div class="header-label InProgress">
+    Running
+    <div class="header-label-count">{{runningCount}}</div>
+  </div>
+
+  <div class="header-label Completed">
+    Completed
+    <div class="header-label-count">{{completedCount}}</div>
+  </div>
+
+  <div class="header-label Failed">
+    Failed
+    <div class="header-label-count">{{failedCount}}</div>
+  </div>
+</div>
+
 <div class="handle-controls">
   <div class="show-items-wrapper">
     <label>show:</label>
@@ -23,23 +45,22 @@
     <th>status</th>
     <th>created</th>
     <th>expires</th>
-    <th>storage</th>
-    <th>location</th>
+    <th>storage location</th>
     <th>selector</th>
   </tr>
   <tr *ngFor="let backup of backupsData; index as i;">
-    <td *ngIf="i < limit && !backup.hide"><a routerLink="/backup/{{backup.name}}">{{backup.name}}</a></td>
+    <td *ngIf="i < limit && !backup.hide"><a routerLink="/backups/backup/{{backup.name}}">{{backup.name}}</a></td>
     <td *ngIf="i < limit && !backup.hide">
-      <a routerLink="/backup/{{backup.name}}"><span class="completed-label" *ngIf="backup.status === 1">
-      completed
-    </span>
+      <a routerLink="/backups/backup/{{backup.name}}">
+        <span class="label {{backup.status}}">
+          {{backup.status}}
+        </span>
       </a>
     </td>
-    <td *ngIf="i < limit && !backup.hide"><a routerLink="/backup/{{backup.name}}">{{backup.created}}</a></td>
-    <td *ngIf="i < limit && !backup.hide"><a routerLink="/backup/{{backup.name}}">{{backup.expires}}</a></td>
-    <td *ngIf="i < limit && !backup.hide"><a routerLink="/backup/{{backup.name}}">{{backup.storage}}</a></td>
-    <td *ngIf="i < limit && !backup.hide"><a routerLink="/backup/{{backup.name}}">{{backup.location}}</a></td>
-    <td *ngIf="i < limit && !backup.hide"><a routerLink="/backup/{{backup.name}}">{{backup.selector}}</a></td>
+    <td *ngIf="i < limit && !backup.hide"><a routerLink="/backups/backup/{{backup.name}}">{{backup.created}}</a></td>
+    <td *ngIf="i < limit && !backup.hide"><a routerLink="/backups/backup/{{backup.name}}">{{backup.expires}}</a></td>
+    <td *ngIf="i < limit && !backup.hide"><a routerLink="/backups/backup/{{backup.name}}">{{backup.location}}</a></td>
+    <td *ngIf="i < limit && !backup.hide"><a routerLink="/backups/backup/{{backup.name}}">{{backup.selector}}</a></td>
   </tr>
 </table>
 

@@ -8,8 +8,17 @@
     <td>{{backUpdata.Namespace}}</td>
   </tr>
   <tr>
-    <td>Labels</td>
-    <td>{{backUpdata.Labels}}</td>
+    <td colspan="2">Labels</td>
+  </tr>
+  <tr>
+    <td colspan="2" class="inner-table-container">
+      <table>
+        <tr *ngFor="let label of backUpdata.Labels">
+          <td>{{label.name}}</td>
+          <td>{{label.value}}</td>
+        </tr>
+      </table>
+    </td>
   </tr>
   <tr>
     <td>Annotations</td>
@@ -107,11 +116,11 @@
     <td colspan="2">Restic_Backups</td>
   </tr>
   <tr>
-    <td>Completed</td>
-    <td>{{backUpdata.Restic_Backups.Completed}}</td>
+    <td>Volume Snapshot Attempted</td>
+    <td>{{backUpdata.Volume_Snapshot_Attempted}}</td>
   </tr>
   <tr>
-    <td>wordpress/wp-7ccf7ffbc8-r9c99</td>
-    <td>{{backUpdata.Restic_Backups['wordpress/wp-7ccf7ffbc8-r9c99']}}</td>
+    <td>Volume Snapshot Completed</td>
+    <td>{{backUpdata.Volume_Snapshot_Completed}}</td>
   </tr>
 </table>

@@ -1,1 +1,16 @@
+ul li {
+  display: inline-block;
+  list-style: none;
+  padding: 10px;
+}
 
+ul li a {
+  color: #2b27ff;
+  text-decoration: none;
+  transition: all 0.5s ease-in;
+  font-size: 22px;
+}
+
+ul li a:hover, ul li a.active {
+  color: #ff6120;
+}

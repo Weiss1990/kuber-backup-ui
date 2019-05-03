@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, ParamMap, Router} from '@angular/router';
-import {switchMap} from 'rxjs/operators';
+import {ActivatedRoute, Router} from '@angular/router';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-backup-description',
@@ -12,40 +12,75 @@ export class BackupDescriptionComponent implements OnInit {
   backUpdata: any;
 
   constructor(private route: ActivatedRoute,
-              private router: Router) { }
+              private http: HttpClient) { }
 
-  ngOnInit() {
-    this.route.params.subscribe(params => {
+   ngOnInit() {
+    this.route.params.subscribe(async params => {
+
+      let backupFullData;
+
+      if ('backupsData' in sessionStorage) {
+        const backups: any = JSON.parse(sessionStorage.getItem('backupsData'));
+
+        backupFullData = backups.find(backup => {
+          return backup.metadata.name === params.name;
+        });
+
+      } else {
+        const response: any = await this.http.get('http://localhost:3000/backups').toPromise();
+
+        localStorage.setItem('backupsData', JSON.stringify(response.items));
+
+        backupFullData = response.items.find(backup => {
+          return backup.metadata.name === params.name;
+        });
+      }
+
+      function prepareLabels() {
+        const labels = [];
+
+        const labelsObject = backupFullData.metadata.labels;
+
+        for (const prop in labelsObject) {
+          labels.push({
+            name: prop,
+            value: labelsObject[prop]
+          });
+        };
+
+        console.log(labels);
+
+        return labels;
+      };
+
       this.backUpdata = {
         Name: params.name,
-        Namespace: 'velero',
-        Labels: 'velero.io/storage-location=default',
+        Namespace: backupFullData.metadata.namespace,
+        Labels: prepareLabels(),
         Annotations: '<none>',
-        Phase: 'Completed',
+        Phase: backupFullData.status.phase,
+
         Namespaces: {
-          Included: '*',
-          Excluded: '<none>',
+          Included: backupFullData.spec.includedNamespaces.join(),
+          Excluded: backupFullData.spec.excludedNamespaces,
         },
         Resources:  {
-          Included: '*',
-          Excluded: '<none>',
-          'Cluster-scoped': 'auto'
+          Included: backupFullData.spec.includedResourses,
+          Excluded: backupFullData.spec.excludedResourses,
+          'Cluster-scoped': backupFullData.spec.includedClusterResources
         },
-        Label_selector: 'app=wp',
-        Storage_Location: 'default',
-        Snapshot_Vs: 'auto',
-        TTL: '720h0m0s',
-        Hooks: '<none>',
-        Backup_Format_Version: 1,
-        Started: '2019-04-15 17:34:41 +0300 EEST',
-        Completed: '2019-04-15 17:35:01 +0300 EEST',
-        Expiration: '2019-05-15 17:34:41 +0300 EEST',
-        Validation_errors: '<none>',
-        Persistent_Volumes: '<none included>',
-        Restic_Backups: {
-          Completed: '',
-          'wordpress/wp-7ccf7ffbc8-r9c99': 'data'
-        }
+        Label_selector: 'app=' + backupFullData.spec.labelSelector.matchLabels.app,
+        Storage_Location: backupFullData.spec.storageLocation,
+        Snapshot_Vs: backupFullData.spec.volumeSnapshotLocations,
+        TTL: backupFullData.spec.ttl,
+        Hooks: backupFullData.spec.hooks.resources,
+        Backup_Format_Version: backupFullData.status.version,
+        Started: backupFullData.status.startTimestamp,
+        Completed: backupFullData.status.completionTimestamp,
+        Expiration: backupFullData.status.expiration,
+        Validation_errors: backupFullData.status.validationErrors,
+        Volume_Snapshot_Attempted: backupFullData.status.volumeSnapshotsAttempted,
+        Volume_Snapshot_Completed: backupFullData.status.volumeSnapshotsCompleted
       };
     });
   }

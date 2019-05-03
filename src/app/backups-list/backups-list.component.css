@@ -1,23 +1,27 @@
-.completed-label {
-  display: inline-block;
-  padding: 5px 20px;
-  background: #1D9405;
-  border-radius: 5px;
+.header-labels-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.header-label {
+  width: 21%;
+  height: 100px;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 20px;
   color: #fff;
-  font-weight: bold;
+  position: relative;
+  overflow: hidden;
 }
 
-.handle-controls {
-  padding: 20px 10px;
-  font-size: 0;
-}
-
-.handle-controls label {
-  font-size: 16px;
-  display: block;
-}
-
-.show-items-wrapper, .search-wrapper {
-  display: inline-block;
-  width: 50%;
+.header-label-count {
+  position: relative;
+  bottom: 0;
+  left: 0;
+  margin: 0 -20px;
+  top: 43px;
+  padding: 10px 20px;
+  border-top: 2px solid rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.1);
 }

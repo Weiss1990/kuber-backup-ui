@@ -9,12 +9,16 @@ import { AppComponent } from './app.component';
 import { BackupsListComponent } from './backups-list/backups-list.component';
 import { BackupDescriptionComponent } from './backup-description/backup-description.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SchedulesListComponent } from './schedules-list/schedules-list.component';
+import { ScheduleDescriptionComponent } from './schedule-description/schedule-description.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BackupsListComponent,
-    BackupDescriptionComponent
+    BackupDescriptionComponent,
+    SchedulesListComponent,
+    ScheduleDescriptionComponent
   ],
   imports: [
     BrowserModule,
