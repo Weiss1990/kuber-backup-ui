@@ -1,3 +1,7 @@
+for normal launching this application please install first this server locally: https://github.com/Weiss1990/kuber-backup-api-server
+
+when you will put server to host, please, don't forget to set this host in environment prod of this angular project.
+
 # KuberBackupUi
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
