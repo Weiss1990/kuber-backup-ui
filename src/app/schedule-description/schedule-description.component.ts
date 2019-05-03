@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-schedule-description',
@@ -27,7 +28,7 @@ export class ScheduleDescriptionComponent implements OnInit {
         });
 
       } else {
-        const response: any = await this.http.get('http://localhost:3000/schedules').toPromise();
+        const response: any = await this.http.get(`${environment.apiServer}/schedules`).toPromise();
 
         localStorage.setItem('schedulesData', JSON.stringify(response.items));
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 class BackupsData {
   name: string;
@@ -55,6 +56,8 @@ export class BackupsListComponent implements OnInit {
 
   async ngOnInit() {
 
+    console.log(environment);
+
     function prepareBackupsData(backup) {
       function AmountOfExpirationDays() {
         const dateExp = new Date(backup.status.expiration);
@@ -86,7 +89,7 @@ export class BackupsListComponent implements OnInit {
         return prepareBackupsData(backup);
       });
     } else {
-      const data: any = await this.http.get('http://localhost:3000/backups').toPromise();
+      const data: any = await this.http.get(`${environment.apiServer}/backups`).toPromise();
 
       sessionStorage.setItem('backupsData', JSON.stringify(data.items));
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-backup-description',
@@ -27,7 +28,7 @@ export class BackupDescriptionComponent implements OnInit {
         });
 
       } else {
-        const response: any = await this.http.get('http://localhost:3000/backups').toPromise();
+        const response: any = await this.http.get(`${environment.apiServer}/backups`).toPromise();
 
         localStorage.setItem('backupsData', JSON.stringify(response.items));
 

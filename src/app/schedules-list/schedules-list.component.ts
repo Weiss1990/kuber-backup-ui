@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {environment} from '../../environments/environment';
 
 class SchedulesData {
   name: string;
@@ -88,7 +89,7 @@ export class SchedulesListComponent implements OnInit {
         return prepareSchedulesData(schedule);
       });
     } else {
-      const data: any = await this.http.get('http://localhost:3000/schedules').toPromise();
+      const data: any = await this.http.get(`${environment.apiServer}/schedules`).toPromise();
 
       sessionStorage.setItem('schedulesData', JSON.stringify(data.items));
 

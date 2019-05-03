@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-restores-description',
@@ -27,7 +28,7 @@ export class RestoresDescriptionComponent implements OnInit {
         });
 
       } else {
-        const response: any = await this.http.get('http://localhost:3000/restores').toPromise();
+        const response: any = await this.http.get(`${environment.apiServer}/restores`).toPromise();
 
         localStorage.setItem('restoresData', JSON.stringify(response.items));
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {environment} from '../../environments/environment';
 
 class RestoresData {
   name: string;
@@ -83,7 +84,7 @@ export class RestoresListComponent implements OnInit {
         return prepareBackupsData(backup);
       });
     } else {
-      const data: any = await this.http.get('http://localhost:3000/restores').toPromise();
+      const data: any = await this.http.get(`${environment.apiServer}/restores`).toPromise();
 
       console.log(data.items);
 
