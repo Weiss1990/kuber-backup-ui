@@ -1,6 +1,7 @@
 for normal launching this application please install first this server locally: https://github.com/Weiss1990/kuber-backup-api-server
 
 when you will put server to host, please, don't forget to set this host in environment prod of this angular project.
+for local usage enough just to launch api server on localhost:3000 and this application an localhost:4200.
 
 # KuberBackupUi
 
